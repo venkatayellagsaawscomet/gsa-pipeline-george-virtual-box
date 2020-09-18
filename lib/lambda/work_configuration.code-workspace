@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"name": "gsa-pipeline",
+			"path": "../../gsa-pipeline"
+		}
+	],
+	"settings": {}
+}

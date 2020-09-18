@@ -1,0 +1,2130 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree"
+      },
+      "GsaPipelineStack": {
+        "id": "GsaPipelineStack",
+        "path": "GsaPipelineStack",
+        "children": {
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "GsaPipelineStack/BootstrapVersion"
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "GsaPipelineStack/CheckBootstrapVersion"
+          },
+          "Pipeline": {
+            "id": "Pipeline",
+            "path": "GsaPipelineStack/Pipeline",
+            "children": {
+              "Pipeline": {
+                "id": "Pipeline",
+                "path": "GsaPipelineStack/Pipeline/Pipeline",
+                "children": {
+                  "ArtifactsBucketEncryptionKey": {
+                    "id": "ArtifactsBucketEncryptionKey",
+                    "path": "GsaPipelineStack/Pipeline/Pipeline/ArtifactsBucketEncryptionKey",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "GsaPipelineStack/Pipeline/Pipeline/ArtifactsBucketEncryptionKey/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::KMS::Key",
+                          "aws:cdk:cloudformation:props": {
+                            "keyPolicy": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "kms:Create*",
+                                    "kms:Describe*",
+                                    "kms:Enable*",
+                                    "kms:List*",
+                                    "kms:Put*",
+                                    "kms:Update*",
+                                    "kms:Revoke*",
+                                    "kms:Disable*",
+                                    "kms:Get*",
+                                    "kms:Delete*",
+                                    "kms:ScheduleKeyDeletion",
+                                    "kms:CancelKeyDeletion",
+                                    "kms:GenerateDataKey",
+                                    "kms:TagResource",
+                                    "kms:UntagResource"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "AWS": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":iam::662872024835:root"
+                                        ]
+                                      ]
+                                    }
+                                  },
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": [
+                                    "kms:Decrypt",
+                                    "kms:DescribeKey",
+                                    "kms:Encrypt",
+                                    "kms:ReEncrypt*",
+                                    "kms:GenerateDataKey*"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "AWS": {
+                                      "Fn::GetAtt": [
+                                        "PipelineRoleB27FAA37",
+                                        "Arn"
+                                      ]
+                                    }
+                                  },
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": [
+                                    "kms:Decrypt",
+                                    "kms:DescribeKey",
+                                    "kms:Encrypt",
+                                    "kms:ReEncrypt*",
+                                    "kms:GenerateDataKey*"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "AWS": {
+                                      "Fn::GetAtt": [
+                                        "PipelineBuildSynthCdkBuildProjectRole231EEA2A",
+                                        "Arn"
+                                      ]
+                                    }
+                                  },
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": [
+                                    "kms:Decrypt",
+                                    "kms:Encrypt",
+                                    "kms:ReEncrypt*",
+                                    "kms:GenerateDataKey*"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "AWS": {
+                                      "Fn::GetAtt": [
+                                        "PipelineBuildSynthCdkBuildProjectRole231EEA2A",
+                                        "Arn"
+                                      ]
+                                    }
+                                  },
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": [
+                                    "kms:Decrypt",
+                                    "kms:DescribeKey"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "AWS": {
+                                      "Fn::GetAtt": [
+                                        "PipelineUpdatePipelineSelfMutationRole57E559E8",
+                                        "Arn"
+                                      ]
+                                    }
+                                  },
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": [
+                                    "kms:Decrypt",
+                                    "kms:Encrypt",
+                                    "kms:ReEncrypt*",
+                                    "kms:GenerateDataKey*"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "AWS": {
+                                      "Fn::GetAtt": [
+                                        "PipelineUpdatePipelineSelfMutationRole57E559E8",
+                                        "Arn"
+                                      ]
+                                    }
+                                  },
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": [
+                                    "kms:Decrypt",
+                                    "kms:DescribeKey"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "AWS": {
+                                      "Fn::GetAtt": [
+                                        "PipelineAssetsFileRole59943A77",
+                                        "Arn"
+                                      ]
+                                    }
+                                  },
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": [
+                                    "kms:Decrypt",
+                                    "kms:Encrypt",
+                                    "kms:ReEncrypt*",
+                                    "kms:GenerateDataKey*"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "AWS": {
+                                      "Fn::GetAtt": [
+                                        "PipelineAssetsFileRole59943A77",
+                                        "Arn"
+                                      ]
+                                    }
+                                  },
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": [
+                                    "kms:Decrypt",
+                                    "kms:DescribeKey"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "AWS": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":iam::662872024835:role/cdk-hnb659fds-deploy-role-662872024835-us-east-1"
+                                        ]
+                                      ]
+                                    }
+                                  },
+                                  "Resource": "*"
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ArtifactsBucket": {
+                    "id": "ArtifactsBucket",
+                    "path": "GsaPipelineStack/Pipeline/Pipeline/ArtifactsBucket",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "GsaPipelineStack/Pipeline/Pipeline/ArtifactsBucket/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                          "aws:cdk:cloudformation:props": {
+                            "bucketEncryption": {
+                              "serverSideEncryptionConfiguration": [
+                                {
+                                  "serverSideEncryptionByDefault": {
+                                    "sseAlgorithm": "aws:kms",
+                                    "kmsMasterKeyId": {
+                                      "Fn::GetAtt": [
+                                        "PipelineArtifactsBucketEncryptionKeyF5BF0670",
+                                        "Arn"
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            "publicAccessBlockConfiguration": {
+                              "blockPublicAcls": true,
+                              "blockPublicPolicy": true,
+                              "ignorePublicAcls": true,
+                              "restrictPublicBuckets": true
+                            }
+                          }
+                        }
+                      },
+                      "Notifications": {
+                        "id": "Notifications",
+                        "path": "GsaPipelineStack/Pipeline/Pipeline/ArtifactsBucket/Notifications"
+                      }
+                    }
+                  },
+                  "ArtifactsBucketEncryptionKeyAlias": {
+                    "id": "ArtifactsBucketEncryptionKeyAlias",
+                    "path": "GsaPipelineStack/Pipeline/Pipeline/ArtifactsBucketEncryptionKeyAlias",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "GsaPipelineStack/Pipeline/Pipeline/ArtifactsBucketEncryptionKeyAlias/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::KMS::Alias",
+                          "aws:cdk:cloudformation:props": {
+                            "aliasName": "alias/codepipeline-gsapipelinestackpipelineeee2c8c4",
+                            "targetKeyId": {
+                              "Fn::GetAtt": [
+                                "PipelineArtifactsBucketEncryptionKeyF5BF0670",
+                                "Arn"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Role": {
+                    "id": "Role",
+                    "path": "GsaPipelineStack/Pipeline/Pipeline/Role",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "GsaPipelineStack/Pipeline/Pipeline/Role/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "codepipeline.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "GsaPipelineStack/Pipeline/Pipeline/Role/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "GsaPipelineStack/Pipeline/Pipeline/Role/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": [
+                                        "s3:GetObject*",
+                                        "s3:GetBucket*",
+                                        "s3:List*",
+                                        "s3:DeleteObject*",
+                                        "s3:PutObject*",
+                                        "s3:Abort*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "PipelineArtifactsBucketAEA9A052",
+                                            "Arn"
+                                          ]
+                                        },
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "PipelineArtifactsBucketAEA9A052",
+                                                  "Arn"
+                                                ]
+                                              },
+                                              "/*"
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Action": [
+                                        "kms:Decrypt",
+                                        "kms:DescribeKey",
+                                        "kms:Encrypt",
+                                        "kms:ReEncrypt*",
+                                        "kms:GenerateDataKey*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::GetAtt": [
+                                          "PipelineArtifactsBucketEncryptionKeyF5BF0670",
+                                          "Arn"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::GetAtt": [
+                                          "PipelineBuildSynthCodePipelineActionRole4E7A6C97",
+                                          "Arn"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::GetAtt": [
+                                          "PipelineUpdatePipelineSelfMutateCodePipelineActionRoleD6D4E5CF",
+                                          "Arn"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::GetAtt": [
+                                          "PipelineAssetsFileRole59943A77",
+                                          "Arn"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::Join": [
+                                          "",
+                                          [
+                                            "arn:",
+                                            {
+                                              "Ref": "AWS::Partition"
+                                            },
+                                            ":iam::662872024835:role/cdk-hnb659fds-deploy-role-662872024835-us-east-1"
+                                          ]
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "PipelineRoleDefaultPolicy7BDC1ABB",
+                                "roles": [
+                                  {
+                                    "Ref": "PipelineRoleB27FAA37"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "GsaPipelineStack/Pipeline/Pipeline/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::CodePipeline::Pipeline",
+                      "aws:cdk:cloudformation:props": {
+                        "roleArn": {
+                          "Fn::GetAtt": [
+                            "PipelineRoleB27FAA37",
+                            "Arn"
+                          ]
+                        },
+                        "stages": [
+                          {
+                            "name": "Source",
+                            "actions": [
+                              {
+                                "name": "GitHub",
+                                "outputArtifacts": [
+                                  {
+                                    "name": "Artifact_Source_GitHub"
+                                  }
+                                ],
+                                "actionTypeId": {
+                                  "category": "Source",
+                                  "version": "1",
+                                  "owner": "ThirdParty",
+                                  "provider": "GitHub"
+                                },
+                                "configuration": {
+                                  "Owner": "venkatayellagsaawscomet",
+                                  "Repo": "gsa-pipeline",
+                                  "Branch": "master",
+                                  "OAuthToken": "{{resolve:secretsmanager:github-token:SecretString:::}}",
+                                  "PollForSourceChanges": false
+                                },
+                                "runOrder": 1
+                              }
+                            ]
+                          },
+                          {
+                            "name": "Build",
+                            "actions": [
+                              {
+                                "name": "Synth",
+                                "inputArtifacts": [
+                                  {
+                                    "name": "Artifact_Source_GitHub"
+                                  }
+                                ],
+                                "outputArtifacts": [
+                                  {
+                                    "name": "Artifact_Build_Synth"
+                                  }
+                                ],
+                                "actionTypeId": {
+                                  "category": "Build",
+                                  "version": "1",
+                                  "owner": "AWS",
+                                  "provider": "CodeBuild"
+                                },
+                                "configuration": {
+                                  "ProjectName": {
+                                    "Ref": "PipelineBuildSynthCdkBuildProject6BEFA8E6"
+                                  }
+                                },
+                                "runOrder": 1,
+                                "roleArn": {
+                                  "Fn::GetAtt": [
+                                    "PipelineBuildSynthCodePipelineActionRole4E7A6C97",
+                                    "Arn"
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "UpdatePipeline",
+                            "actions": [
+                              {
+                                "name": "SelfMutate",
+                                "inputArtifacts": [
+                                  {
+                                    "name": "Artifact_Build_Synth"
+                                  }
+                                ],
+                                "actionTypeId": {
+                                  "category": "Build",
+                                  "version": "1",
+                                  "owner": "AWS",
+                                  "provider": "CodeBuild"
+                                },
+                                "configuration": {
+                                  "ProjectName": {
+                                    "Ref": "PipelineUpdatePipelineSelfMutationDAA41400"
+                                  }
+                                },
+                                "runOrder": 1,
+                                "roleArn": {
+                                  "Fn::GetAtt": [
+                                    "PipelineUpdatePipelineSelfMutateCodePipelineActionRoleD6D4E5CF",
+                                    "Arn"
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "Assets",
+                            "actions": [
+                              {
+                                "name": "FileAsset1",
+                                "inputArtifacts": [
+                                  {
+                                    "name": "Artifact_Build_Synth"
+                                  }
+                                ],
+                                "actionTypeId": {
+                                  "category": "Build",
+                                  "version": "1",
+                                  "owner": "AWS",
+                                  "provider": "CodeBuild"
+                                },
+                                "configuration": {
+                                  "ProjectName": {
+                                    "Ref": "PipelineAssetsFileAsset185A67CB4"
+                                  }
+                                },
+                                "runOrder": 1,
+                                "roleArn": {
+                                  "Fn::GetAtt": [
+                                    "PipelineAssetsFileRole59943A77",
+                                    "Arn"
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "name": "Development",
+                            "actions": [
+                              {
+                                "name": "DummyWebService.Prepare",
+                                "inputArtifacts": [
+                                  {
+                                    "name": "Artifact_Build_Synth"
+                                  }
+                                ],
+                                "actionTypeId": {
+                                  "category": "Deploy",
+                                  "version": "1",
+                                  "owner": "AWS",
+                                  "provider": "CloudFormation"
+                                },
+                                "configuration": {
+                                  "StackName": "Development-DummyWebService",
+                                  "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
+                                  "RoleArn": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::662872024835:role/cdk-hnb659fds-cfn-exec-role-662872024835-us-east-1"
+                                      ]
+                                    ]
+                                  },
+                                  "ActionMode": "CHANGE_SET_REPLACE",
+                                  "ChangeSetName": "PipelineChange",
+                                  "TemplatePath": "Artifact_Build_Synth::assembly-GsaPipelineStack-Development/GsaPipelineStackDevelopmentDummyWebService38E1AA42.template.json"
+                                },
+                                "runOrder": 1,
+                                "roleArn": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":iam::662872024835:role/cdk-hnb659fds-deploy-role-662872024835-us-east-1"
+                                    ]
+                                  ]
+                                }
+                              },
+                              {
+                                "name": "DummyWebService.Deploy",
+                                "actionTypeId": {
+                                  "category": "Deploy",
+                                  "version": "1",
+                                  "owner": "AWS",
+                                  "provider": "CloudFormation"
+                                },
+                                "configuration": {
+                                  "StackName": "Development-DummyWebService",
+                                  "ActionMode": "CHANGE_SET_EXECUTE",
+                                  "ChangeSetName": "PipelineChange"
+                                },
+                                "runOrder": 2,
+                                "roleArn": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":iam::662872024835:role/cdk-hnb659fds-deploy-role-662872024835-us-east-1"
+                                    ]
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "artifactStore": {
+                          "type": "S3",
+                          "location": {
+                            "Ref": "PipelineArtifactsBucketAEA9A052"
+                          },
+                          "encryptionKey": {
+                            "type": "KMS",
+                            "id": {
+                              "Fn::GetAtt": [
+                                "PipelineArtifactsBucketEncryptionKeyF5BF0670",
+                                "Arn"
+                              ]
+                            }
+                          }
+                        },
+                        "name": "DummyAppPipeline",
+                        "restartExecutionOnUpdate": true
+                      }
+                    }
+                  },
+                  "Source": {
+                    "id": "Source",
+                    "path": "GsaPipelineStack/Pipeline/Pipeline/Source",
+                    "children": {
+                      "GitHub": {
+                        "id": "GitHub",
+                        "path": "GsaPipelineStack/Pipeline/Pipeline/Source/GitHub",
+                        "children": {
+                          "WebhookResource": {
+                            "id": "WebhookResource",
+                            "path": "GsaPipelineStack/Pipeline/Pipeline/Source/GitHub/WebhookResource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::CodePipeline::Webhook",
+                              "aws:cdk:cloudformation:props": {
+                                "authentication": "GITHUB_HMAC",
+                                "authenticationConfiguration": {
+                                  "secretToken": "{{resolve:secretsmanager:github-token:SecretString:::}}"
+                                },
+                                "filters": [
+                                  {
+                                    "jsonPath": "$.ref",
+                                    "matchEquals": "refs/heads/{Branch}"
+                                  }
+                                ],
+                                "targetAction": "GitHub",
+                                "targetPipeline": {
+                                  "Ref": "Pipeline9850B417"
+                                },
+                                "targetPipelineVersion": 1,
+                                "registerWithThirdParty": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Build": {
+                    "id": "Build",
+                    "path": "GsaPipelineStack/Pipeline/Pipeline/Build",
+                    "children": {
+                      "Synth": {
+                        "id": "Synth",
+                        "path": "GsaPipelineStack/Pipeline/Pipeline/Build/Synth",
+                        "children": {
+                          "CodePipelineActionRole": {
+                            "id": "CodePipelineActionRole",
+                            "path": "GsaPipelineStack/Pipeline/Pipeline/Build/Synth/CodePipelineActionRole",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "GsaPipelineStack/Pipeline/Pipeline/Build/Synth/CodePipelineActionRole/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                                  "aws:cdk:cloudformation:props": {
+                                    "assumeRolePolicyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": "sts:AssumeRole",
+                                          "Effect": "Allow",
+                                          "Principal": {
+                                            "AWS": {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  "arn:",
+                                                  {
+                                                    "Ref": "AWS::Partition"
+                                                  },
+                                                  ":iam::662872024835:root"
+                                                ]
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    }
+                                  }
+                                }
+                              },
+                              "DefaultPolicy": {
+                                "id": "DefaultPolicy",
+                                "path": "GsaPipelineStack/Pipeline/Pipeline/Build/Synth/CodePipelineActionRole/DefaultPolicy",
+                                "children": {
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "GsaPipelineStack/Pipeline/Pipeline/Build/Synth/CodePipelineActionRole/DefaultPolicy/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                      "aws:cdk:cloudformation:props": {
+                                        "policyDocument": {
+                                          "Statement": [
+                                            {
+                                              "Action": [
+                                                "codebuild:BatchGetBuilds",
+                                                "codebuild:StartBuild",
+                                                "codebuild:StopBuild"
+                                              ],
+                                              "Effect": "Allow",
+                                              "Resource": {
+                                                "Fn::GetAtt": [
+                                                  "PipelineBuildSynthCdkBuildProject6BEFA8E6",
+                                                  "Arn"
+                                                ]
+                                              }
+                                            }
+                                          ],
+                                          "Version": "2012-10-17"
+                                        },
+                                        "policyName": "PipelineBuildSynthCodePipelineActionRoleDefaultPolicy92C90290",
+                                        "roles": [
+                                          {
+                                            "Ref": "PipelineBuildSynthCodePipelineActionRole4E7A6C97"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "CdkBuildProject": {
+                            "id": "CdkBuildProject",
+                            "path": "GsaPipelineStack/Pipeline/Pipeline/Build/Synth/CdkBuildProject",
+                            "children": {
+                              "Role": {
+                                "id": "Role",
+                                "path": "GsaPipelineStack/Pipeline/Pipeline/Build/Synth/CdkBuildProject/Role",
+                                "children": {
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "GsaPipelineStack/Pipeline/Pipeline/Build/Synth/CdkBuildProject/Role/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                                      "aws:cdk:cloudformation:props": {
+                                        "assumeRolePolicyDocument": {
+                                          "Statement": [
+                                            {
+                                              "Action": "sts:AssumeRole",
+                                              "Effect": "Allow",
+                                              "Principal": {
+                                                "Service": "codebuild.amazonaws.com"
+                                              }
+                                            }
+                                          ],
+                                          "Version": "2012-10-17"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "DefaultPolicy": {
+                                    "id": "DefaultPolicy",
+                                    "path": "GsaPipelineStack/Pipeline/Pipeline/Build/Synth/CdkBuildProject/Role/DefaultPolicy",
+                                    "children": {
+                                      "Resource": {
+                                        "id": "Resource",
+                                        "path": "GsaPipelineStack/Pipeline/Pipeline/Build/Synth/CdkBuildProject/Role/DefaultPolicy/Resource",
+                                        "attributes": {
+                                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                          "aws:cdk:cloudformation:props": {
+                                            "policyDocument": {
+                                              "Statement": [
+                                                {
+                                                  "Action": [
+                                                    "logs:CreateLogGroup",
+                                                    "logs:CreateLogStream",
+                                                    "logs:PutLogEvents"
+                                                  ],
+                                                  "Effect": "Allow",
+                                                  "Resource": [
+                                                    {
+                                                      "Fn::Join": [
+                                                        "",
+                                                        [
+                                                          "arn:",
+                                                          {
+                                                            "Ref": "AWS::Partition"
+                                                          },
+                                                          ":logs:us-east-1:662872024835:log-group:/aws/codebuild/",
+                                                          {
+                                                            "Ref": "PipelineBuildSynthCdkBuildProject6BEFA8E6"
+                                                          }
+                                                        ]
+                                                      ]
+                                                    },
+                                                    {
+                                                      "Fn::Join": [
+                                                        "",
+                                                        [
+                                                          "arn:",
+                                                          {
+                                                            "Ref": "AWS::Partition"
+                                                          },
+                                                          ":logs:us-east-1:662872024835:log-group:/aws/codebuild/",
+                                                          {
+                                                            "Ref": "PipelineBuildSynthCdkBuildProject6BEFA8E6"
+                                                          },
+                                                          ":*"
+                                                        ]
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "Action": [
+                                                    "codebuild:CreateReportGroup",
+                                                    "codebuild:CreateReport",
+                                                    "codebuild:UpdateReport",
+                                                    "codebuild:BatchPutTestCases"
+                                                  ],
+                                                  "Effect": "Allow",
+                                                  "Resource": {
+                                                    "Fn::Join": [
+                                                      "",
+                                                      [
+                                                        "arn:",
+                                                        {
+                                                          "Ref": "AWS::Partition"
+                                                        },
+                                                        ":codebuild:us-east-1:662872024835:report-group/",
+                                                        {
+                                                          "Ref": "PipelineBuildSynthCdkBuildProject6BEFA8E6"
+                                                        },
+                                                        "-*"
+                                                      ]
+                                                    ]
+                                                  }
+                                                },
+                                                {
+                                                  "Action": [
+                                                    "s3:GetObject*",
+                                                    "s3:GetBucket*",
+                                                    "s3:List*",
+                                                    "s3:DeleteObject*",
+                                                    "s3:PutObject*",
+                                                    "s3:Abort*"
+                                                  ],
+                                                  "Effect": "Allow",
+                                                  "Resource": [
+                                                    {
+                                                      "Fn::GetAtt": [
+                                                        "PipelineArtifactsBucketAEA9A052",
+                                                        "Arn"
+                                                      ]
+                                                    },
+                                                    {
+                                                      "Fn::Join": [
+                                                        "",
+                                                        [
+                                                          {
+                                                            "Fn::GetAtt": [
+                                                              "PipelineArtifactsBucketAEA9A052",
+                                                              "Arn"
+                                                            ]
+                                                          },
+                                                          "/*"
+                                                        ]
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "Action": [
+                                                    "kms:Decrypt",
+                                                    "kms:DescribeKey",
+                                                    "kms:Encrypt",
+                                                    "kms:ReEncrypt*",
+                                                    "kms:GenerateDataKey*"
+                                                  ],
+                                                  "Effect": "Allow",
+                                                  "Resource": {
+                                                    "Fn::GetAtt": [
+                                                      "PipelineArtifactsBucketEncryptionKeyF5BF0670",
+                                                      "Arn"
+                                                    ]
+                                                  }
+                                                },
+                                                {
+                                                  "Action": [
+                                                    "kms:Decrypt",
+                                                    "kms:Encrypt",
+                                                    "kms:ReEncrypt*",
+                                                    "kms:GenerateDataKey*"
+                                                  ],
+                                                  "Effect": "Allow",
+                                                  "Resource": {
+                                                    "Fn::GetAtt": [
+                                                      "PipelineArtifactsBucketEncryptionKeyF5BF0670",
+                                                      "Arn"
+                                                    ]
+                                                  }
+                                                }
+                                              ],
+                                              "Version": "2012-10-17"
+                                            },
+                                            "policyName": "PipelineBuildSynthCdkBuildProjectRoleDefaultPolicyFB6C941C",
+                                            "roles": [
+                                              {
+                                                "Ref": "PipelineBuildSynthCdkBuildProjectRole231EEA2A"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "GsaPipelineStack/Pipeline/Pipeline/Build/Synth/CdkBuildProject/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::CodeBuild::Project",
+                                  "aws:cdk:cloudformation:props": {
+                                    "artifacts": {
+                                      "type": "CODEPIPELINE"
+                                    },
+                                    "environment": {
+                                      "type": "LINUX_CONTAINER",
+                                      "image": "aws/codebuild/standard:4.0",
+                                      "privilegedMode": false,
+                                      "computeType": "BUILD_GENERAL1_SMALL"
+                                    },
+                                    "serviceRole": {
+                                      "Fn::GetAtt": [
+                                        "PipelineBuildSynthCdkBuildProjectRole231EEA2A",
+                                        "Arn"
+                                      ]
+                                    },
+                                    "source": {
+                                      "type": "CODEPIPELINE",
+                                      "buildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"pre_build\": {\n      \"commands\": [\n        \"npm ci\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"npm run build\",\n        \"npx cdk synth\"\n      ]\n    }\n  },\n  \"artifacts\": {\n    \"base-directory\": \"cdk.out\",\n    \"files\": \"**/*\"\n  }\n}"
+                                    },
+                                    "encryptionKey": {
+                                      "Fn::GetAtt": [
+                                        "PipelineArtifactsBucketEncryptionKeyF5BF0670",
+                                        "Arn"
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "UpdatePipeline": {
+                    "id": "UpdatePipeline",
+                    "path": "GsaPipelineStack/Pipeline/Pipeline/UpdatePipeline",
+                    "children": {
+                      "SelfMutate": {
+                        "id": "SelfMutate",
+                        "path": "GsaPipelineStack/Pipeline/Pipeline/UpdatePipeline/SelfMutate",
+                        "children": {
+                          "CodePipelineActionRole": {
+                            "id": "CodePipelineActionRole",
+                            "path": "GsaPipelineStack/Pipeline/Pipeline/UpdatePipeline/SelfMutate/CodePipelineActionRole",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "GsaPipelineStack/Pipeline/Pipeline/UpdatePipeline/SelfMutate/CodePipelineActionRole/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                                  "aws:cdk:cloudformation:props": {
+                                    "assumeRolePolicyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": "sts:AssumeRole",
+                                          "Effect": "Allow",
+                                          "Principal": {
+                                            "AWS": {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  "arn:",
+                                                  {
+                                                    "Ref": "AWS::Partition"
+                                                  },
+                                                  ":iam::662872024835:root"
+                                                ]
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    }
+                                  }
+                                }
+                              },
+                              "DefaultPolicy": {
+                                "id": "DefaultPolicy",
+                                "path": "GsaPipelineStack/Pipeline/Pipeline/UpdatePipeline/SelfMutate/CodePipelineActionRole/DefaultPolicy",
+                                "children": {
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "GsaPipelineStack/Pipeline/Pipeline/UpdatePipeline/SelfMutate/CodePipelineActionRole/DefaultPolicy/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                      "aws:cdk:cloudformation:props": {
+                                        "policyDocument": {
+                                          "Statement": [
+                                            {
+                                              "Action": [
+                                                "codebuild:BatchGetBuilds",
+                                                "codebuild:StartBuild",
+                                                "codebuild:StopBuild"
+                                              ],
+                                              "Effect": "Allow",
+                                              "Resource": {
+                                                "Fn::GetAtt": [
+                                                  "PipelineUpdatePipelineSelfMutationDAA41400",
+                                                  "Arn"
+                                                ]
+                                              }
+                                            }
+                                          ],
+                                          "Version": "2012-10-17"
+                                        },
+                                        "policyName": "PipelineUpdatePipelineSelfMutateCodePipelineActionRoleDefaultPolicyE626265B",
+                                        "roles": [
+                                          {
+                                            "Ref": "PipelineUpdatePipelineSelfMutateCodePipelineActionRoleD6D4E5CF"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Assets": {
+                    "id": "Assets",
+                    "path": "GsaPipelineStack/Pipeline/Pipeline/Assets",
+                    "children": {
+                      "FileAsset1": {
+                        "id": "FileAsset1",
+                        "path": "GsaPipelineStack/Pipeline/Pipeline/Assets/FileAsset1"
+                      }
+                    }
+                  },
+                  "Development": {
+                    "id": "Development",
+                    "path": "GsaPipelineStack/Pipeline/Pipeline/Development",
+                    "children": {
+                      "DummyWebService.Deploy": {
+                        "id": "DummyWebService.Deploy",
+                        "path": "GsaPipelineStack/Pipeline/Pipeline/Development/DummyWebService.Deploy"
+                      },
+                      "DummyWebService.Prepare": {
+                        "id": "DummyWebService.Prepare",
+                        "path": "GsaPipelineStack/Pipeline/Pipeline/Development/DummyWebService.Prepare"
+                      }
+                    }
+                  }
+                }
+              },
+              "UpdatePipeline": {
+                "id": "UpdatePipeline",
+                "path": "GsaPipelineStack/Pipeline/UpdatePipeline",
+                "children": {
+                  "SelfMutation": {
+                    "id": "SelfMutation",
+                    "path": "GsaPipelineStack/Pipeline/UpdatePipeline/SelfMutation",
+                    "children": {
+                      "Role": {
+                        "id": "Role",
+                        "path": "GsaPipelineStack/Pipeline/UpdatePipeline/SelfMutation/Role",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "GsaPipelineStack/Pipeline/UpdatePipeline/SelfMutation/Role/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "codebuild.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                }
+                              }
+                            }
+                          },
+                          "DefaultPolicy": {
+                            "id": "DefaultPolicy",
+                            "path": "GsaPipelineStack/Pipeline/UpdatePipeline/SelfMutation/Role/DefaultPolicy",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "GsaPipelineStack/Pipeline/UpdatePipeline/SelfMutation/Role/DefaultPolicy/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "policyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": [
+                                            "logs:CreateLogGroup",
+                                            "logs:CreateLogStream",
+                                            "logs:PutLogEvents"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  "arn:",
+                                                  {
+                                                    "Ref": "AWS::Partition"
+                                                  },
+                                                  ":logs:us-east-1:662872024835:log-group:/aws/codebuild/",
+                                                  {
+                                                    "Ref": "PipelineUpdatePipelineSelfMutationDAA41400"
+                                                  }
+                                                ]
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  "arn:",
+                                                  {
+                                                    "Ref": "AWS::Partition"
+                                                  },
+                                                  ":logs:us-east-1:662872024835:log-group:/aws/codebuild/",
+                                                  {
+                                                    "Ref": "PipelineUpdatePipelineSelfMutationDAA41400"
+                                                  },
+                                                  ":*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Action": [
+                                            "codebuild:CreateReportGroup",
+                                            "codebuild:CreateReport",
+                                            "codebuild:UpdateReport",
+                                            "codebuild:BatchPutTestCases"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": {
+                                            "Fn::Join": [
+                                              "",
+                                              [
+                                                "arn:",
+                                                {
+                                                  "Ref": "AWS::Partition"
+                                                },
+                                                ":codebuild:us-east-1:662872024835:report-group/",
+                                                {
+                                                  "Ref": "PipelineUpdatePipelineSelfMutationDAA41400"
+                                                },
+                                                "-*"
+                                              ]
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "Action": "sts:AssumeRole",
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            "arn:*:iam::*:role/*-deploy-role-*",
+                                            "arn:*:iam::*:role/*-publishing-role-*"
+                                          ]
+                                        },
+                                        {
+                                          "Action": "cloudformation:DescribeStacks",
+                                          "Effect": "Allow",
+                                          "Resource": "*"
+                                        },
+                                        {
+                                          "Action": "s3:ListBucket",
+                                          "Effect": "Allow",
+                                          "Resource": "*"
+                                        },
+                                        {
+                                          "Action": [
+                                            "s3:GetObject*",
+                                            "s3:GetBucket*",
+                                            "s3:List*"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "PipelineArtifactsBucketAEA9A052",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "PipelineArtifactsBucketAEA9A052",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  "/*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Action": [
+                                            "kms:Decrypt",
+                                            "kms:DescribeKey"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": {
+                                            "Fn::GetAtt": [
+                                              "PipelineArtifactsBucketEncryptionKeyF5BF0670",
+                                              "Arn"
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "Action": [
+                                            "kms:Decrypt",
+                                            "kms:Encrypt",
+                                            "kms:ReEncrypt*",
+                                            "kms:GenerateDataKey*"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": {
+                                            "Fn::GetAtt": [
+                                              "PipelineArtifactsBucketEncryptionKeyF5BF0670",
+                                              "Arn"
+                                            ]
+                                          }
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    },
+                                    "policyName": "PipelineUpdatePipelineSelfMutationRoleDefaultPolicyA225DA4E",
+                                    "roles": [
+                                      {
+                                        "Ref": "PipelineUpdatePipelineSelfMutationRole57E559E8"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "GsaPipelineStack/Pipeline/UpdatePipeline/SelfMutation/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::CodeBuild::Project",
+                          "aws:cdk:cloudformation:props": {
+                            "artifacts": {
+                              "type": "CODEPIPELINE"
+                            },
+                            "environment": {
+                              "type": "LINUX_CONTAINER",
+                              "image": "aws/codebuild/standard:4.0",
+                              "privilegedMode": false,
+                              "computeType": "BUILD_GENERAL1_SMALL"
+                            },
+                            "serviceRole": {
+                              "Fn::GetAtt": [
+                                "PipelineUpdatePipelineSelfMutationRole57E559E8",
+                                "Arn"
+                              ]
+                            },
+                            "source": {
+                              "type": "CODEPIPELINE",
+                              "buildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": \"npm install -g aws-cdk\"\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk -a . deploy GsaPipelineStack --require-approval=never --verbose\"\n      ]\n    }\n  }\n}"
+                            },
+                            "encryptionKey": {
+                              "Fn::GetAtt": [
+                                "PipelineArtifactsBucketEncryptionKeyF5BF0670",
+                                "Arn"
+                              ]
+                            },
+                            "name": "DummyAppPipeline-selfupdate"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Assets": {
+                "id": "Assets",
+                "path": "GsaPipelineStack/Pipeline/Assets",
+                "children": {
+                  "FileRole": {
+                    "id": "FileRole",
+                    "path": "GsaPipelineStack/Pipeline/Assets/FileRole",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "GsaPipelineStack/Pipeline/Assets/FileRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "codebuild.amazonaws.com",
+                                    "AWS": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":iam::662872024835:root"
+                                        ]
+                                      ]
+                                    }
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "GsaPipelineStack/Pipeline/Assets/FileRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "GsaPipelineStack/Pipeline/Assets/FileRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": [
+                                        "logs:CreateLogGroup",
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::Join": [
+                                          "",
+                                          [
+                                            "arn:",
+                                            {
+                                              "Ref": "AWS::Partition"
+                                            },
+                                            ":logs:us-east-1:662872024835:log-group:/aws/codebuild/*"
+                                          ]
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Action": [
+                                        "codebuild:CreateReportGroup",
+                                        "codebuild:CreateReport",
+                                        "codebuild:UpdateReport",
+                                        "codebuild:BatchPutTestCases"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::Join": [
+                                          "",
+                                          [
+                                            "arn:",
+                                            {
+                                              "Ref": "AWS::Partition"
+                                            },
+                                            ":codebuild:us-east-1:662872024835:report-group/*"
+                                          ]
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "Action": [
+                                        "codebuild:BatchGetBuilds",
+                                        "codebuild:StartBuild",
+                                        "codebuild:StopBuild"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": "*"
+                                    },
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Resource": "arn:*:iam::*:role/*-file-publishing-role-*"
+                                    },
+                                    {
+                                      "Action": [
+                                        "s3:GetObject*",
+                                        "s3:GetBucket*",
+                                        "s3:List*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "PipelineArtifactsBucketAEA9A052",
+                                            "Arn"
+                                          ]
+                                        },
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "PipelineArtifactsBucketAEA9A052",
+                                                  "Arn"
+                                                ]
+                                              },
+                                              "/*"
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Action": [
+                                        "kms:Decrypt",
+                                        "kms:DescribeKey"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::GetAtt": [
+                                          "PipelineArtifactsBucketEncryptionKeyF5BF0670",
+                                          "Arn"
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "PipelineAssetsFileRoleDefaultPolicy14DB8755",
+                                "roles": [
+                                  {
+                                    "Ref": "PipelineAssetsFileRole59943A77"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ImmutableRoleFileRole": {
+                    "id": "ImmutableRoleFileRole",
+                    "path": "GsaPipelineStack/Pipeline/Assets/ImmutableRoleFileRole"
+                  },
+                  "FileAsset1": {
+                    "id": "FileAsset1",
+                    "path": "GsaPipelineStack/Pipeline/Assets/FileAsset1",
+                    "children": {
+                      "Default": {
+                        "id": "Default",
+                        "path": "GsaPipelineStack/Pipeline/Assets/FileAsset1/Default",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "GsaPipelineStack/Pipeline/Assets/FileAsset1/Default/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::CodeBuild::Project",
+                              "aws:cdk:cloudformation:props": {
+                                "artifacts": {
+                                  "type": "CODEPIPELINE"
+                                },
+                                "environment": {
+                                  "type": "LINUX_CONTAINER",
+                                  "image": "aws/codebuild/standard:4.0",
+                                  "privilegedMode": false,
+                                  "computeType": "BUILD_GENERAL1_SMALL"
+                                },
+                                "serviceRole": {
+                                  "Fn::GetAtt": [
+                                    "PipelineAssetsFileRole59943A77",
+                                    "Arn"
+                                  ]
+                                },
+                                "source": {
+                                  "type": "CODEPIPELINE",
+                                  "buildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": \"npm install -g cdk-assets\"\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-GsaPipelineStack-Development/GsaPipelineStackDevelopmentDummyWebService38E1AA42.assets.json\\\" --verbose publish \\\"8833e3d49032c422174e3491ce20ea75fbcab91decb4660bd6eae2f959ed7bb0:662872024835-us-east-1\\\"\"\n      ]\n    }\n  }\n}"
+                                },
+                                "encryptionKey": {
+                                  "Fn::GetAtt": [
+                                    "PipelineArtifactsBucketEncryptionKeyF5BF0670",
+                                    "Arn"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Development": {
+                "id": "Development",
+                "path": "GsaPipelineStack/Pipeline/Development",
+                "children": {
+                  "arn:${AWS::Partition}:iam::662872024835:role--cdk-hnb659fds-deploy-role-662872024835-us-east-1": {
+                    "id": "arn:${AWS::Partition}:iam::662872024835:role--cdk-hnb659fds-deploy-role-662872024835-us-east-1",
+                    "path": "GsaPipelineStack/Pipeline/Development/arn:${AWS::Partition}:iam::662872024835:role--cdk-hnb659fds-deploy-role-662872024835-us-east-1"
+                  },
+                  "ImmutableRolearn:${AWS::Partition}:iam::662872024835:role--cdk-hnb659fds-deploy-role-662872024835-us-east-1": {
+                    "id": "ImmutableRolearn:${AWS::Partition}:iam::662872024835:role--cdk-hnb659fds-deploy-role-662872024835-us-east-1",
+                    "path": "GsaPipelineStack/Pipeline/Development/ImmutableRolearn:${AWS::Partition}:iam::662872024835:role--cdk-hnb659fds-deploy-role-662872024835-us-east-1",
+                    "children": {
+                      "8389e75f-0810-4838-bf64-d6f85a95cf83": {
+                        "id": "8389e75f-0810-4838-bf64-d6f85a95cf83",
+                        "path": "GsaPipelineStack/Pipeline/Development/ImmutableRolearn:${AWS::Partition}:iam::662872024835:role--cdk-hnb659fds-deploy-role-662872024835-us-east-1/8389e75f-0810-4838-bf64-d6f85a95cf83"
+                      }
+                    }
+                  },
+                  "arn:${AWS::Partition}:iam::662872024835:role--cdk-hnb659fds-cfn-exec-role-662872024835-us-east-1": {
+                    "id": "arn:${AWS::Partition}:iam::662872024835:role--cdk-hnb659fds-cfn-exec-role-662872024835-us-east-1",
+                    "path": "GsaPipelineStack/Pipeline/Development/arn:${AWS::Partition}:iam::662872024835:role--cdk-hnb659fds-cfn-exec-role-662872024835-us-east-1"
+                  },
+                  "ImmutableRolearn:${AWS::Partition}:iam::662872024835:role--cdk-hnb659fds-cfn-exec-role-662872024835-us-east-1": {
+                    "id": "ImmutableRolearn:${AWS::Partition}:iam::662872024835:role--cdk-hnb659fds-cfn-exec-role-662872024835-us-east-1",
+                    "path": "GsaPipelineStack/Pipeline/Development/ImmutableRolearn:${AWS::Partition}:iam::662872024835:role--cdk-hnb659fds-cfn-exec-role-662872024835-us-east-1"
+                  }
+                }
+              }
+            }
+          },
+          "Development": {
+            "id": "Development",
+            "path": "GsaPipelineStack/Development",
+            "children": {
+              "DummyWebService": {
+                "id": "DummyWebService",
+                "path": "GsaPipelineStack/Development/DummyWebService",
+                "children": {
+                  "BootstrapVersion": {
+                    "id": "BootstrapVersion",
+                    "path": "GsaPipelineStack/Development/DummyWebService/BootstrapVersion"
+                  },
+                  "CheckBootstrapVersion": {
+                    "id": "CheckBootstrapVersion",
+                    "path": "GsaPipelineStack/Development/DummyWebService/CheckBootstrapVersion"
+                  },
+                  "Dummy-Lambda": {
+                    "id": "Dummy-Lambda",
+                    "path": "GsaPipelineStack/Development/DummyWebService/Dummy-Lambda",
+                    "children": {
+                      "ServiceRole": {
+                        "id": "ServiceRole",
+                        "path": "GsaPipelineStack/Development/DummyWebService/Dummy-Lambda/ServiceRole",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "GsaPipelineStack/Development/DummyWebService/Dummy-Lambda/ServiceRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "lambda.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "managedPolicyArns": [
+                                  {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                      ]
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "Code": {
+                        "id": "Code",
+                        "path": "GsaPipelineStack/Development/DummyWebService/Dummy-Lambda/Code",
+                        "children": {
+                          "Stage": {
+                            "id": "Stage",
+                            "path": "GsaPipelineStack/Development/DummyWebService/Dummy-Lambda/Code/Stage"
+                          },
+                          "AssetBucket": {
+                            "id": "AssetBucket",
+                            "path": "GsaPipelineStack/Development/DummyWebService/Dummy-Lambda/Code/AssetBucket"
+                          }
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "GsaPipelineStack/Development/DummyWebService/Dummy-Lambda/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                          "aws:cdk:cloudformation:props": {
+                            "code": {
+                              "s3Bucket": "cdk-hnb659fds-assets-662872024835-us-east-1",
+                              "s3Key": "8833e3d49032c422174e3491ce20ea75fbcab91decb4660bd6eae2f959ed7bb0.zip"
+                            },
+                            "handler": "handler.handler",
+                            "role": {
+                              "Fn::GetAtt": [
+                                "DummyLambdaServiceRole4FCD78D2",
+                                "Arn"
+                              ]
+                            },
+                            "runtime": "nodejs12.x"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Gateway": {
+                    "id": "Gateway",
+                    "path": "GsaPipelineStack/Development/DummyWebService/Gateway",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::RestApi",
+                          "aws:cdk:cloudformation:props": {
+                            "description": "Endpoint for a simple Lambda-powered web service",
+                            "name": "Gateway"
+                          }
+                        }
+                      },
+                      "CloudWatchRole": {
+                        "id": "CloudWatchRole",
+                        "path": "GsaPipelineStack/Development/DummyWebService/Gateway/CloudWatchRole",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "GsaPipelineStack/Development/DummyWebService/Gateway/CloudWatchRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "apigateway.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "managedPolicyArns": [
+                                  {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+                                      ]
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "Account": {
+                        "id": "Account",
+                        "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Account",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Account",
+                          "aws:cdk:cloudformation:props": {
+                            "cloudWatchRoleArn": {
+                              "Fn::GetAtt": [
+                                "GatewayCloudWatchRole34305E06",
+                                "Arn"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "Deployment": {
+                        "id": "Deployment",
+                        "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Deployment",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Deployment/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Deployment",
+                              "aws:cdk:cloudformation:props": {
+                                "restApiId": {
+                                  "Ref": "Gateway43CB3636"
+                                },
+                                "description": "Automatically created by the RestApi construct"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "DeploymentStage.prod": {
+                        "id": "DeploymentStage.prod",
+                        "path": "GsaPipelineStack/Development/DummyWebService/Gateway/DeploymentStage.prod",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "GsaPipelineStack/Development/DummyWebService/Gateway/DeploymentStage.prod/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
+                              "aws:cdk:cloudformation:props": {
+                                "restApiId": {
+                                  "Ref": "Gateway43CB3636"
+                                },
+                                "deploymentId": {
+                                  "Ref": "GatewayDeployment880EB8C289c4e71de3af9ef59ee95b911f7b52c4"
+                                },
+                                "stageName": "prod"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "Endpoint": {
+                        "id": "Endpoint",
+                        "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Endpoint"
+                      },
+                      "Default": {
+                        "id": "Default",
+                        "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Default",
+                        "children": {
+                          "{proxy+}": {
+                            "id": "{proxy+}",
+                            "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Default/{proxy+}",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Default/{proxy+}/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                                  "aws:cdk:cloudformation:props": {
+                                    "parentId": {
+                                      "Fn::GetAtt": [
+                                        "Gateway43CB3636",
+                                        "RootResourceId"
+                                      ]
+                                    },
+                                    "pathPart": "{proxy+}",
+                                    "restApiId": {
+                                      "Ref": "Gateway43CB3636"
+                                    }
+                                  }
+                                }
+                              },
+                              "ANY": {
+                                "id": "ANY",
+                                "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Default/{proxy+}/ANY",
+                                "children": {
+                                  "ApiPermission.GsaPipelineStackDevelopmentDummyWebServiceGatewayF43BA218.ANY..{proxy+}": {
+                                    "id": "ApiPermission.GsaPipelineStackDevelopmentDummyWebServiceGatewayF43BA218.ANY..{proxy+}",
+                                    "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Default/{proxy+}/ANY/ApiPermission.GsaPipelineStackDevelopmentDummyWebServiceGatewayF43BA218.ANY..{proxy+}",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                      "aws:cdk:cloudformation:props": {
+                                        "action": "lambda:InvokeFunction",
+                                        "functionName": {
+                                          "Fn::GetAtt": [
+                                            "DummyLambda9E25854C",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "principal": "apigateway.amazonaws.com",
+                                        "sourceArn": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":execute-api:us-east-1:662872024835:",
+                                              {
+                                                "Ref": "Gateway43CB3636"
+                                              },
+                                              "/",
+                                              {
+                                                "Ref": "GatewayDeploymentStageprod62BC6904"
+                                              },
+                                              "/*/*"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "ApiPermission.Test.GsaPipelineStackDevelopmentDummyWebServiceGatewayF43BA218.ANY..{proxy+}": {
+                                    "id": "ApiPermission.Test.GsaPipelineStackDevelopmentDummyWebServiceGatewayF43BA218.ANY..{proxy+}",
+                                    "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Default/{proxy+}/ANY/ApiPermission.Test.GsaPipelineStackDevelopmentDummyWebServiceGatewayF43BA218.ANY..{proxy+}",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                      "aws:cdk:cloudformation:props": {
+                                        "action": "lambda:InvokeFunction",
+                                        "functionName": {
+                                          "Fn::GetAtt": [
+                                            "DummyLambda9E25854C",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "principal": "apigateway.amazonaws.com",
+                                        "sourceArn": {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":execute-api:us-east-1:662872024835:",
+                                              {
+                                                "Ref": "Gateway43CB3636"
+                                              },
+                                              "/test-invoke-stage/*/*"
+                                            ]
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "Resource": {
+                                    "id": "Resource",
+                                    "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Default/{proxy+}/ANY/Resource",
+                                    "attributes": {
+                                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                      "aws:cdk:cloudformation:props": {
+                                        "httpMethod": "ANY",
+                                        "resourceId": {
+                                          "Ref": "Gatewayproxy441946D2"
+                                        },
+                                        "restApiId": {
+                                          "Ref": "Gateway43CB3636"
+                                        },
+                                        "authorizationType": "NONE",
+                                        "integration": {
+                                          "type": "AWS_PROXY",
+                                          "uri": {
+                                            "Fn::Join": [
+                                              "",
+                                              [
+                                                "arn:",
+                                                {
+                                                  "Ref": "AWS::Partition"
+                                                },
+                                                ":apigateway:us-east-1:lambda:path/2015-03-31/functions/",
+                                                {
+                                                  "Fn::GetAtt": [
+                                                    "DummyLambda9E25854C",
+                                                    "Arn"
+                                                  ]
+                                                },
+                                                "/invocations"
+                                              ]
+                                            ]
+                                          },
+                                          "integrationHttpMethod": "POST"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "ANY": {
+                            "id": "ANY",
+                            "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Default/ANY",
+                            "children": {
+                              "ApiPermission.GsaPipelineStackDevelopmentDummyWebServiceGatewayF43BA218.ANY..": {
+                                "id": "ApiPermission.GsaPipelineStackDevelopmentDummyWebServiceGatewayF43BA218.ANY..",
+                                "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Default/ANY/ApiPermission.GsaPipelineStackDevelopmentDummyWebServiceGatewayF43BA218.ANY..",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                  "aws:cdk:cloudformation:props": {
+                                    "action": "lambda:InvokeFunction",
+                                    "functionName": {
+                                      "Fn::GetAtt": [
+                                        "DummyLambda9E25854C",
+                                        "Arn"
+                                      ]
+                                    },
+                                    "principal": "apigateway.amazonaws.com",
+                                    "sourceArn": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":execute-api:us-east-1:662872024835:",
+                                          {
+                                            "Ref": "Gateway43CB3636"
+                                          },
+                                          "/",
+                                          {
+                                            "Ref": "GatewayDeploymentStageprod62BC6904"
+                                          },
+                                          "/*/"
+                                        ]
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "ApiPermission.Test.GsaPipelineStackDevelopmentDummyWebServiceGatewayF43BA218.ANY..": {
+                                "id": "ApiPermission.Test.GsaPipelineStackDevelopmentDummyWebServiceGatewayF43BA218.ANY..",
+                                "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Default/ANY/ApiPermission.Test.GsaPipelineStackDevelopmentDummyWebServiceGatewayF43BA218.ANY..",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                                  "aws:cdk:cloudformation:props": {
+                                    "action": "lambda:InvokeFunction",
+                                    "functionName": {
+                                      "Fn::GetAtt": [
+                                        "DummyLambda9E25854C",
+                                        "Arn"
+                                      ]
+                                    },
+                                    "principal": "apigateway.amazonaws.com",
+                                    "sourceArn": {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          "arn:",
+                                          {
+                                            "Ref": "AWS::Partition"
+                                          },
+                                          ":execute-api:us-east-1:662872024835:",
+                                          {
+                                            "Ref": "Gateway43CB3636"
+                                          },
+                                          "/test-invoke-stage/*/"
+                                        ]
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "GsaPipelineStack/Development/DummyWebService/Gateway/Default/ANY/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                                  "aws:cdk:cloudformation:props": {
+                                    "httpMethod": "ANY",
+                                    "resourceId": {
+                                      "Fn::GetAtt": [
+                                        "Gateway43CB3636",
+                                        "RootResourceId"
+                                      ]
+                                    },
+                                    "restApiId": {
+                                      "Ref": "Gateway43CB3636"
+                                    },
+                                    "authorizationType": "NONE",
+                                    "integration": {
+                                      "type": "AWS_PROXY",
+                                      "uri": {
+                                        "Fn::Join": [
+                                          "",
+                                          [
+                                            "arn:",
+                                            {
+                                              "Ref": "AWS::Partition"
+                                            },
+                                            ":apigateway:us-east-1:lambda:path/2015-03-31/functions/",
+                                            {
+                                              "Fn::GetAtt": [
+                                                "DummyLambda9E25854C",
+                                                "Arn"
+                                              ]
+                                            },
+                                            "/invocations"
+                                          ]
+                                        ]
+                                      },
+                                      "integrationHttpMethod": "POST"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Url": {
+                    "id": "Url",
+                    "path": "GsaPipelineStack/Development/DummyWebService/Url"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

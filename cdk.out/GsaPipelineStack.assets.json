@@ -1,0 +1,20 @@
+{
+  "version": "5.0.0",
+  "files": {
+    "dfc54e141aaf6b515c4ed19a59123af21ac2be4eac724beadb97d173e771f994": {
+      "source": {
+        "path": "GsaPipelineStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "662872024835-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-662872024835-us-east-1",
+          "objectKey": "dfc54e141aaf6b515c4ed19a59123af21ac2be4eac724beadb97d173e771f994",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::662872024835:role/cdk-hnb659fds-file-publishing-role-662872024835-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
